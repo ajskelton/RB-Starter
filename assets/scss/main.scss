@@ -1,5 +1,53 @@
+/*!
+Theme Name: RB Starter
+Theme URI: https://github.com/ajskelton/rb-starter.git
+Author: Red Bridge Internet
+Author URI: https://redbridgenet.com
+Description: WordPress Theme for Red Bridge Internet
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: rb-starter
+Tags: gutenberg
+*/
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Tailwind Base
+# Tailwind Plugins
+# Site Variables and Mixins
+# Accessibility
+# Site Components
+# Tailwind Utilities
+
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Tailwind base styles - includes normalize.css
+--------------------------------------------------------------*/
+@tailwind base;
+
+/*--------------------------------------------------------------
+# Tailwind plugins - included in tailwind.config.js
+--------------------------------------------------------------*/
+@tailwind components;
+
+/*--------------------------------------------------------------
+# Site Variables and Mixins
+--------------------------------------------------------------*/
 @import "partials/base";
-@import "partials/reset";
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+//@import "modules/accessibility";
+
+/*--------------------------------------------------------------
+# Site Components
+--------------------------------------------------------------*/
+
 @import "partials/layout";
 @import "partials/form";
 @import "partials/blocks-base";
@@ -12,3 +60,10 @@
 @import "partials/archive";
 @import "partials/singular";
 @import "partials/site-footer";
+@import "partials/entry-content";
+
+/*--------------------------------------------------------------
+# Tailwind Utilities - generated from config in tailwind.js
+--------------------------------------------------------------*/
+@tailwind utilities;
+
