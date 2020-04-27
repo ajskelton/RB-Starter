@@ -2,19 +2,24 @@
 /**
  * Archive partial
  *
- * @package      EAStarter
- * @author       Bill Erickson
+ * @package      RBStarter
+ * @author       Red Bridge Internet
  * @since        1.0.0
  * @license      GPL-2.0+
-**/
+ **/
 
-echo '<article class="post-summary">';
+?>
+<article class="post-summary">
+	
+	<?php rb_post_summary_image(); ?>
 
-	ea_post_summary_image();
+    <div class="post-summary__content">
+		
+		<?php
+		rb_entry_category();
+		rb_post_summary_title();
+		?>
+    
+    </div>
 
-	echo '<div class="post-summary__content">';
-		ea_entry_category();
-		ea_post_summary_title();
-	echo '</div>';
-
-echo '</article>';
+</article>

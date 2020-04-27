@@ -2,40 +2,44 @@
 /**
  * TinyMCE Customizations
  *
- * @package      EAStarter
- * @author       Bill Erickson
+ * @package      RBStarter
+ * @author       Red Bridge Internet
  * @since        1.0.0
  * @license      GPL-2.0+
-**/
+ **/
 
- /**
-  * Add "Styles" drop-down to TinyMCE
-  *
-  * @since 1.0.0
-  * @param array $buttons
-  * @return array
-  */
- function ea_mce_editor_buttons( $buttons ) {
- 	array_unshift( $buttons, 'styleselect' );
- 	return $buttons;
- }
- add_filter( 'mce_buttons_2', 'ea_mce_editor_buttons' );
+/**
+ * Add "Styles" drop-down to TinyMCE
+ *
+ * @param array $buttons
+ *
+ * @return array
+ * @since 1.0.0
+ */
+function rb_mce_editor_buttons( $buttons ) {
+	array_unshift( $buttons, 'styleselect' );
+	
+	return $buttons;
+}
 
- /**
-  * Add styles/classes to the TinyMCE "Formats" drop-down
-  *
-  * @since 1.0.0
-  * @param array $settings
-  * @return array
-  */
- function ea_mce_before_init( $settings ) {
+add_filter( 'mce_buttons_2', 'rb_mce_editor_buttons' );
 
- 	$style_formats = array(
- 		array(
- 			'title'    => 'Button',
- 			'selector' => 'a',
- 			'classes'  => 'button',
- 		),
+/**
+ * Add styles/classes to the TinyMCE "Formats" drop-down
+ *
+ * @param array $settings
+ *
+ * @return array
+ * @since 1.0.0
+ */
+function rb_mce_before_init( $settings ) {
+	
+	$style_formats             = array(
+		array(
+			'title'    => 'Button',
+			'selector' => 'a',
+			'classes'  => 'button',
+		),
 		array(
 			'title'    => 'Large Paragraph',
 			'selector' => 'p',
@@ -51,8 +55,10 @@
 			'selector' => 'p',
 			'classes'  => 'extra-margin',
 		)
- 	);
- 	$settings['style_formats'] = json_encode( $style_formats );
- 	return $settings;
- }
- add_filter( 'tiny_mce_before_init', 'ea_mce_before_init' );
+	);
+	$settings['style_formats'] = json_encode( $style_formats );
+	
+	return $settings;
+}
+
+add_filter( 'tiny_mce_before_init', 'rb_mce_before_init' );

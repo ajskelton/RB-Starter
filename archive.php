@@ -2,30 +2,30 @@
 /**
  * Archive
  *
- * @package      EAStarter
- * @author       Bill Erickson
+ * @package      RBStarter
+ * @author       Red Bridge Internet
  * @since        1.0.0
  * @license      GPL-2.0+
 **/
 
 // Full width
-add_filter( 'ea_page_layout', 'ea_return_full_width_content' );
+add_filter( 'rb_page_layout', 'rb_return_full_width_content' );
 
 /**
  * Body Class
  *
  */
-function ea_archive_body_class( $classes ) {
+function rb_archive_body_class( $classes ) {
 	$classes[] = 'archive';
 	return $classes;
 }
-add_filter( 'body_class', 'ea_archive_body_class' );
+add_filter( 'body_class', 'rb_archive_body_class' );
 
 /**
  * Archive Header
  *
  */
-function ea_archive_header() {
+function rb_archive_header() {
 
 	$title = $subtitle = $description = $more = false;
 
@@ -50,21 +50,21 @@ function ea_archive_header() {
 		$classes[] = 'author-archive-description';
 
 	echo '<header class="' . join( ' ', $classes ) . '">';
-	do_action ('ea_archive_header_before' );
+	do_action ('rb_archive_header_before' );
 	if( ! empty( $title ) )
 		echo '<h1 class="archive-title">' . $title . '</h1>';
 	if( !empty( $subtitle ) )
 		echo '<h4>' . $subtitle . '</h4>';
-	echo apply_filters( 'ea_the_content', $description );
+	echo apply_filters( 'rb_the_content', $description );
 	echo $more;
-	do_action ('ea_archive_header_after' );
+	do_action ('rb_archive_header_after' );
 	echo '</header>';
 
 }
-add_action( 'tha_content_while_before', 'ea_archive_header' );
+add_action( 'tha_content_while_before', 'rb_archive_header' );
 
 // Breadcrumbs
-add_action( 'ea_archive_header_before', 'ea_breadcrumbs', 5 );
+add_action( 'rb_archive_header_before', 'rb_breadcrumbs', 5 );
 
 // Build the page
 require get_template_directory() . '/index.php';

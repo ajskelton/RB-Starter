@@ -2,37 +2,43 @@
 /**
  * Singular partial
  *
- * @package      EAStarter
- * @author       Bill Erickson
+ * @package      RBStarter
+ * @author       Red Bridge Internet
  * @since        1.0.0
  * @license      GPL-2.0+
-**/
+ **/
 
-echo '<article class="' . join( ' ', get_post_class() ) . '">';
+?>
+<article class="<?php echo implode( ' ', get_post_class() ) ?>">
+	
+	<?php if ( rb_has_action( 'tha_entry_top' ) ) : ?>
+        <header class="entry-header">
+			<?php tha_entry_top() ?>
+        </header>
+	<?php endif; ?>
 
-	if( ea_has_action( 'tha_entry_top' ) ) {
-		echo '<header class="entry-header">';
-		tha_entry_top();
-		echo '</header>';
-	}
-
-	echo '<div class="entry-content">';
+    <div class="entry-content">
+		
+		<?php
+		
 		tha_entry_content_before();
-
+		
 		the_content();
-
+		
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ea-starter' ),
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'rb-starter' ),
 			'after'  => '</div>',
 		) );
-
+		
 		tha_entry_content_after();
-	echo '</div>';
+		
+		?>
+    </div>
+	
+	<?php if ( rb_has_action( 'tha_entry_bottom' ) ) : ?>
+        <footer class="entry-footer">
+			<?php tha_entry_bottom() ?>
+        </footer>
+	<?php endif; ?>
 
-	if( ea_has_action( 'tha_entry_bottom' ) ) {
-		echo '<footer class="entry-footer">';
-			tha_entry_bottom();
-		echo '</footer>';
-	}
-
-echo '</article>';
+</article>

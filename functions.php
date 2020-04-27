@@ -2,8 +2,8 @@
 /**
  * Functions
  *
- * @package      EAStarter
- * @author       Bill Erickson
+ * @package      RBStarter
+ * @author       Red Bridge Internet
  * @since        1.0.0
  * @license      GPL-2.0+
 **/
@@ -14,7 +14,7 @@ Please read the instructions here (private repo): https://github.com/billerickso
 Devs, contact me if you need access
 */
 
-define( 'EA_STARTER_VERSION', filemtime( get_template_directory() . '/assets/css/main.css' ) );
+define( 'RB_STARTER_VERSION', filemtime( get_template_directory() . '/assets/css/main.css' ) );
 
 // General cleanup
 include_once( get_template_directory() . '/inc/wordpress-cleanup.php' );
@@ -46,10 +46,10 @@ include_once( get_template_directory() . '/inc/wpforms.php' );
 /**
  * Enqueue scripts and styles.
  */
-function ea_scripts() {
+function rb_scripts() {
 
-	if( ! ea_is_amp() ) {
-		wp_enqueue_script( 'ea-global', get_template_directory_uri() . '/dist/main-bundle.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/main-bundle.js' ), true );
+	if( ! rb_is_amp() ) {
+		wp_enqueue_script( 'rb-global', get_template_directory_uri() . '/dist/main-bundle.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/main-bundle.js' ), true );
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
@@ -64,31 +64,31 @@ function ea_scripts() {
 
 	}
 
-	wp_enqueue_style( 'ea-fonts', ea_theme_fonts_url() );
-	wp_enqueue_style( 'ea-style', get_template_directory_uri() . '/dist/css/main.css', array(), filemtime( get_template_directory() . '/dist/css/main.css' ) );
+	wp_enqueue_style( 'rb-fonts', rb_theme_fonts_url() );
+	wp_enqueue_style( 'rb-style', get_template_directory_uri() . '/dist/css/main.css', array(), filemtime( get_template_directory() . '/dist/css/main.css' ) );
 
 }
-add_action( 'wp_enqueue_scripts', 'ea_scripts' );
+add_action( 'wp_enqueue_scripts', 'rb_scripts' );
 
 /**
  * Gutenberg scripts and styles
  *
  */
-function ea_gutenberg_scripts() {
-	wp_enqueue_style( 'ea-fonts', ea_theme_fonts_url() );
-	wp_enqueue_script( 'ea-editor', get_template_directory_uri() . '/assets/js/editor.js', array( 'wp-blocks', 'wp-dom' ), filemtime( get_template_directory() . '/assets/js/editor.js' ), true );
+function rb_gutenberg_scripts() {
+	wp_enqueue_style( 'rb-fonts', rb_theme_fonts_url() );
+	wp_enqueue_script( 'rb-editor', get_template_directory_uri() . '/assets/js/editor.js', array( 'wp-blocks', 'wp-dom' ), filemtime( get_template_directory() . '/assets/js/editor.js' ), true );
 }
-add_action( 'enqueue_block_editor_assets', 'ea_gutenberg_scripts' );
+add_action( 'enqueue_block_editor_assets', 'rb_gutenberg_scripts' );
 
 /**
  * Theme Fonts URL
  *
  */
-function ea_theme_fonts_url() {
+function rb_theme_fonts_url() {
 	return false;
 }
 
-if ( ! function_exists( 'ea_setup' ) ) :
+if ( ! function_exists( 'rb_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -96,7 +96,7 @@ if ( ! function_exists( 'ea_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function ea_setup() {
+function rb_setup() {
 	/*
 	 * Make theme available for translation.
 	 */
@@ -127,7 +127,7 @@ function ea_setup() {
 	 * Set the content width in pixels, based on the theme's design and stylesheet.
 	 *
 	 */
-	 $GLOBALS['content_width'] = apply_filters( 'ea_content_width', 768 );
+	 $GLOBALS['content_width'] = apply_filters( 'rb_content_width', 768 );
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
@@ -138,8 +138,8 @@ function ea_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Navigation Menu', 'ea-starter' ),
-		'secondary' => esc_html__( 'Secondary Navigation Menu', 'ea-starter' ),
+		'primary' => esc_html__( 'Primary Navigation Menu', 'rb-starter' ),
+		'secondary' => esc_html__( 'Secondary Navigation Menu', 'rb-starter' ),
 	) );
 
 	/*
@@ -168,20 +168,20 @@ function ea_setup() {
 	// -- Editor Font Styles
 	add_theme_support( 'editor-font-sizes', array(
 		array(
-			'name'      => __( 'Small', 'ea-starter' ),
-			'shortName' => __( 'S', 'ea-starter' ),
+			'name'      => __( 'Small', 'rb-starter' ),
+			'shortName' => __( 'S', 'rb-starter' ),
 			'size'      => 14,
 			'slug'      => 'small'
 		),
 		array(
-			'name'      => __( 'Normal', 'ea-starter' ),
-			'shortName' => __( 'M', 'ea-starter' ),
+			'name'      => __( 'Normal', 'rb-starter' ),
+			'shortName' => __( 'M', 'rb-starter' ),
 			'size'      => 20,
 			'slug'      => 'normal'
 		),
 		array(
-			'name'      => __( 'Large', 'ea-starter' ),
-			'shortName' => __( 'L', 'ea-starter' ),
+			'name'      => __( 'Large', 'rb-starter' ),
+			'shortName' => __( 'L', 'rb-starter' ),
 			'size'      => 24,
 			'slug'      => 'large'
 		),
@@ -193,12 +193,12 @@ function ea_setup() {
 	// -- Editor Color Palette
 	add_theme_support( 'editor-color-palette', array(
 		array(
-			'name'  => __( 'Blue', 'ea_starter' ),
+			'name'  => __( 'Blue', 'rb_starter' ),
 			'slug'  => 'blue',
 			'color'	=> '#05306F',
 		),
 		array(
-			'name'  => __( 'Grey', 'ea_starter' ),
+			'name'  => __( 'Grey', 'rb_starter' ),
 			'slug'  => 'grey',
 			'color' => '#FAFAFA',
 		),
@@ -206,16 +206,16 @@ function ea_setup() {
 
 }
 endif;
-add_action( 'after_setup_theme', 'ea_setup' );
+add_action( 'after_setup_theme', 'rb_setup' );
 
 /**
  * Template Hierarchy
  *
  */
-function ea_template_hierarchy( $template ) {
+function rb_template_hierarchy( $template ) {
 
 	if( is_home() || is_search() )
 		$template = get_query_template( 'archive' );
 	return $template;
 }
-add_filter( 'template_include', 'ea_template_hierarchy' );
+add_filter( 'template_include', 'rb_template_hierarchy' );

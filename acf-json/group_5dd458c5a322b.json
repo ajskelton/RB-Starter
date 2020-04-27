@@ -5,7 +5,7 @@
         {
             "key": "field_5dd458cd3c3fd",
             "label": "Default Image",
-            "name": "ea_default_image",
+            "name": "rb_default_image",
             "type": "image",
             "instructions": "",
             "required": 0,
