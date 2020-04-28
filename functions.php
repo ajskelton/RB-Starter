@@ -8,13 +8,7 @@
  * @license      GPL-2.0+
 **/
 
-/*
-BEFORE MODIFYING THIS THEME:
-Please read the instructions here (private repo): https://github.com/billerickson/EA-Starter/wiki
-Devs, contact me if you need access
-*/
-
-define( 'RB_STARTER_VERSION', filemtime( get_template_directory() . '/assets/css/main.css' ) );
+define( 'RB_THEME_VERSION', filemtime( get_template_directory() . '/dist/css/main.css' ) );
 
 // General cleanup
 include_once( get_template_directory() . '/inc/wordpress-cleanup.php' );
@@ -193,9 +187,9 @@ function rb_setup() {
 	// -- Editor Color Palette
 	add_theme_support( 'editor-color-palette', array(
 		array(
-			'name'  => __( 'Blue', 'rb_starter' ),
-			'slug'  => 'blue',
-			'color'	=> '#05306F',
+			'name'  => __( 'Red', 'rb_starter' ),
+			'slug'  => 'red',
+			'color'	=> '#b71c1c',
 		),
 		array(
 			'name'  => __( 'Grey', 'rb_starter' ),
