@@ -25,7 +25,7 @@ function rb_page_layout_options() {
  *
  */
 function rb_editor_layout_style() {
-	wp_enqueue_style( 'rb-editor-layout', get_stylesheet_directory_uri() . '/assets/css/editor-layout.css', [], filemtime( get_stylesheet_directory() . '/assets/css/editor-layout.css' ) );
+	wp_enqueue_style( 'rb-editor-layout', get_stylesheet_directory_uri() . '/dist/css/editor-layout.css', [], filemtime( get_stylesheet_directory() . '/dist/css/editor-layout.css' ) );
 }
 
 add_action( 'enqueue_block_editor_assets', 'rb_editor_layout_style' );
