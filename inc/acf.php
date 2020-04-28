@@ -132,6 +132,16 @@ class RB_ACF_Customizations {
 			return;
 		}
 		
+		acf_register_block_type( array(
+			'name'            => 'test-block',
+			'title'           => __( 'Test Block', 'rb-starter' ),
+			'render_template' => 'partials/blocks/test.php',
+			'category'        => 'formatting',
+			'icon'            => 'admin-users',
+			'mode'            => 'auto',
+			'keywords'        => array( 'test' )
+		) );
+		
 	}
 }
 
