@@ -28,6 +28,9 @@ class RB_ACF_Customizations {
 		// Register Blocks
 		add_action( 'acf/init', array( $this, 'register_blocks' ) );
 		
+		// Register Parent Sync
+		add_filter('acf/settings/load_json', array( $this, 'parent_theme_field_groups') );
+		
 	}
 	
 	/**
@@ -142,6 +145,20 @@ class RB_ACF_Customizations {
 			'keywords'        => array( 'test' )
 		) );
 		
+	}
+	
+	/**
+	 * Attempting to get child theme custom fields to save to child acf-json folder
+	 *
+	 * @see https://support.advancedcustomfields.com/forums/topic/parent-child-theme-json-sync/
+	 * @param $paths
+	 *
+	 * @return mixed
+	 */
+	public function parent_theme_field_groups($paths) {
+		$path = get_template_directory().'/acf-json';
+		$paths[] = $path;
+		return $paths;
 	}
 }
 
