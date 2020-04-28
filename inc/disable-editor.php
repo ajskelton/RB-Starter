@@ -17,7 +17,9 @@
  */
 function rb_disable_editor( $id = false ) {
 	
-	$excluded_templates = array();
+	$excluded_templates = array(
+		'page-acf.php'
+	);
 	
 	$excluded_ids = array();
 	
