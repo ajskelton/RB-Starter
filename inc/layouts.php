@@ -183,7 +183,7 @@ function rb_widget_area_args( $args = array() ) {
 function rb_page_layout( $id = false ) {
 	
 	$available_layouts = rb_page_layout_options();
-	$layout            = 'content-sidebar';
+	$layout            = 'content';
 	
 	if ( is_singular() || $id ) {
 		$id       = $id ? intval( $id ) : get_the_ID();
