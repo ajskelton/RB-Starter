@@ -2,16 +2,6 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
-function recursiveIssuer(m) {
-	if (m.issuer) {
-		return recursiveIssuer(m.issuer);
-	} else if (m.name) {
-		return m.name;
-	} else {
-		return false;
-	}
-}
-
 module.exports = {
 	context: __dirname,
 	entry: {

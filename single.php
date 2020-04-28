@@ -2,7 +2,7 @@
 /**
  * Single Post
  *
- * @package      RBStarter
+ * @package      RedBridge
  * @author       Red Bridge Internet
  * @since        1.0.0
  * @license      GPL-2.0+

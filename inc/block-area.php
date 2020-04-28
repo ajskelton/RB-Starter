@@ -4,7 +4,7 @@
  * CPT for block-based widget areas, until WP core adds block support to widget areas
  * @link         https://www.billerickson.net/wordpress-gutenberg-block-widget-areas/
  *
- * @package      RBStarter
+ * @package      RedBridge
  * @author       Red Bridge Internet
  * @since        1.0.0
  * @license      GPL-2.0+

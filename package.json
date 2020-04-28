@@ -1,7 +1,7 @@
 {
-  "name": "rb-starter",
+  "name": "redbridge",
   "version": "1.0.0",
-  "description": "A WordPress Theme for Red Bridge Internet",
+  "description": "Parent Theme for Red Bridge Internet Projects",
   "main": "index.js",
   "browserslist": [
     "> 2%",
