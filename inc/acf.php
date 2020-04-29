@@ -28,9 +28,8 @@ class RB_ACF_Customizations {
 		// Register Blocks
 		add_action( 'acf/init', array( $this, 'register_blocks' ) );
 		
-		// Register Parent Sync
-		add_filter('acf/settings/load_json', array( $this, 'parent_theme_field_groups') );
-		
+		// Set Save Json Location for Child Theme
+		add_filter('acf/settings/save_json', array( $this, 'child_theme_save_field_groups' ) );
 	}
 	
 	/**
@@ -148,17 +147,10 @@ class RB_ACF_Customizations {
 	}
 	
 	/**
-	 * Attempting to get child theme custom fields to save to child acf-json folder
-	 *
-	 * @see https://support.advancedcustomfields.com/forums/topic/parent-child-theme-json-sync/
-	 * @param $paths
-	 *
-	 * @return mixed
+	 * Sets the save directory to the Child Theme acf-json folder
 	 */
-	public function parent_theme_field_groups($paths) {
-		$path = get_template_directory().'/acf-json';
-		$paths[] = $path;
-		return $paths;
+	public function child_theme_save_field_groups( $path ) {
+		return get_stylesheet_directory() . '/acf-json';
 	}
 }
 
